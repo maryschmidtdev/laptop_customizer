@@ -10,7 +10,6 @@ const USCurrencyFormat = new Intl.NumberFormat("en-US", {
 });
 class Features extends Component {
   render() {
-    console.log(this.props.features);
     const features = Object.keys(this.props.features).map((feature, idx) => {
       const featureHash = feature + "-" + idx;
       const options = this.props.features[feature].map((item) => {
@@ -23,14 +22,6 @@ class Features extends Component {
               item={item}
               name={this.props.selected[feature].name}
             />
-            <input
-              name={slugify(feature)}
-              checked={item.name === this.props.selected[feature].name}
-              onChange={(e) => this.updateFeature(feature, item)}
-            />
-            <label htmlFor={itemHash} className="feature__label">
-              {item.name} ({USCurrencyFormat.format(item.cost)})
-            </label>
           </div>
         );
       });
