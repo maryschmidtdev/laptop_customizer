@@ -47,6 +47,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state);
     // const features = Object.keys(this.props.features).map((feature, idx) => {
     //   const featureHash = feature + "-" + idx;
     //   const options = this.props.features[feature].map((item) => {
@@ -100,17 +101,18 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <Header />
-          {/* <h1>ELF Computing | Laptops</h1> */}
-        </header>
+        <Header />
+
         <main>
           {/* <form className="main__form">
             <h2>Customize your laptop</h2>
             {features}
           </form> */}
-          <Features />
-          <Summary />
+          <Features
+            features={this.props.features}
+            selected={this.state.selected}
+          />
+          <Summary selectedOption={this.state.selectedOption} />
 
           <section className="main__summary">
             {/* <h2>Your cart</h2>
